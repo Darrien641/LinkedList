@@ -24,16 +24,16 @@ namespace LinkedList
             return current.next;
         }
 
-        public void Print(string data)
+        public void Print()
         {
             Node current = front;
             if (front == null)
             {
                 Console.WriteLine("List is empty!");
             }
-            else 
+            else
             {
-                while(current != null)
+                while (current != null)
                 {
                     Console.WriteLine(current.data);
                     current = current.next;
@@ -45,16 +45,42 @@ namespace LinkedList
             if (front == null)
             {
                 front = new Node(data);
-                return front;
             }
             else
             {
-                Node current = front;
-                front = new Node(data);
-                return front;
+                Node NewFront = new Node(data);
+                NewFront.next = front;
+                front = NewFront;
             }
+            return front;
+        }
+        public void getFirst()
+        {
+            if (front == null)
+            {
+                Console.WriteLine("List is Empty!");
+            }
+            Console.WriteLine(front.data);
         }
 
+        public Node Contains(string data)
+        {
+            Node current = front;
+            if (data == current.data)
+            {
+                return current;
+            }
+            else
+            {
+                while (current != null && current.data != data)
+                {
+                    current = current.next;
+                    
+                }
+                return null;
+            }
+            
+        }
 
     }
 }
