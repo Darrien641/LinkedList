@@ -16,13 +16,30 @@ namespace LinkedList
                 return front;
             }
             Node current = front;
-            while (current != null)
+            while (current.next != null)
             {
-                
+                current = current.next;
             }
-            return front;
+            current.next = new Node(data);
+            return current.next;
         }
 
+        public void Print(string data)
+        {
+            Node current = front;
+            if (front == null)
+            {
+                Console.WriteLine("List is empty!");
+            }
+            else 
+            {
+                while(current != null)
+                {
+                    Console.WriteLine(current.data);
+                    current = current.next;
+                }
+            }
+        }
         public Node addFirst(string data)
         {
             if (front == null)
@@ -37,5 +54,7 @@ namespace LinkedList
                 return front;
             }
         }
+
+
     }
 }
