@@ -8,20 +8,21 @@ namespace LinkedList
     {
         private Node front;
 
-        public Node Add(string data)
+        public void Add(string data)
         {
             if (front == null)
             {
                 front = new Node(data);
-                return front;
             }
-            Node current = front;
-            while (current.next != null)
+            else
             {
-                current = current.next;
+                Node current = front;
+                while (current.next != null)
+                {
+                    current = current.next;
+                }
+                current.next = new Node(data);
             }
-            current.next = new Node(data);
-            return current.next;
         }
 
         public void Print()
@@ -33,14 +34,15 @@ namespace LinkedList
             }
             else
             {
-                while (current != null)
+                while (current.next != null)
                 {
                     Console.WriteLine(current.data);
                     current = current.next;
                 }
+                Console.WriteLine(current.data);
             }
         }
-        public Node addFirst(string data)
+        public void addFirst(string data)
         {
             if (front == null)
             {
@@ -52,17 +54,33 @@ namespace LinkedList
                 NewFront.next = front;
                 front = NewFront;
             }
-            return front;
         }
-        public void getFirst()
+        public string getFirst()
         {
             if (front == null)
             {
-                Console.WriteLine("List is Empty!");
+                return "List is Empty!";
             }
-            Console.WriteLine(front.data);
+            return front.data;
         }
-
+        public void Remove(string data)
+        {
+            Node current = front;
+            while (current.next != null)
+            {
+                string NodeData = current.next.data;
+                if (NodeData == data)
+                {
+                    current.next = current.next.next;
+                }
+                else if (data == front.data) 
+                {
+                    NodeData = front.data;
+                    front = front.next;
+                }
+                current = current.next;
+            }
+        }
         public Node Contains(string data)
         {
             Node current = front;
@@ -74,8 +92,7 @@ namespace LinkedList
             {
                 while (current != null && current.data != data)
                 {
-                    current = current.next;
-                    
+                    current = current.next; 
                 }
                 return null;
             }
