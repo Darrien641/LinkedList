@@ -20,15 +20,15 @@ namespace LinkedList
             linkedList.Add("blue");
             linkedList.Add("green");
             linkedList.Add("yellow");
-            while (Input != "6") { 
+            while (Input != "6" ) { 
                 Console.WriteLine("\nEnter An Option");
                 MenuList.Print();
                 Input = Console.ReadLine();
-                Console.WriteLine("\n");
-                if (int.Parse(Input) == 1)
+                Console.WriteLine();
+                if (Input == "1")
                 {
                     Console.WriteLine(linkedList.getFirst());
-                    Console.WriteLine("\n");
+                    Console.WriteLine("");
                 }
                 if (Input == "2")
                 {
@@ -36,7 +36,7 @@ namespace LinkedList
                     Console.WriteLine("\nWhat would you like to add?");
                     Input = Console.ReadLine();
                     linkedList.Add(Input.ToLower());
-                    Console.WriteLine("\n");
+                    Console.WriteLine("");
                 }
                 if (Input == "3")
                 {
@@ -46,32 +46,34 @@ namespace LinkedList
                     if (linkedList.Contains(Input.ToLower()) != null)
                     {
                         linkedList.Remove(Input.ToLower());
-                        Console.WriteLine(Input + " Was removed");
-
+                        Console.WriteLine(Input + " Was removed\n");
                     }
                     else
                     {
                         Console.WriteLine(Input + " Items selected could not be removed. \nEither the Item does not exist or you should check your spelling.\n");
                     }
-                    
+                    Console.WriteLine("");
+
                 }
                 if (Input == "4")
                 {
+                    Console.WriteLine("");
                     Input = "";
-                    Console.WriteLine("\nWhat Item would you like to search for?");
+                    Console.WriteLine("What Item would you like to search for?");
                     Input = Console.ReadLine();
                     if (linkedList.Contains(Input.ToLower()) != null)
                     {
-                        Console.WriteLine(Input +" is in list");
+                        Console.WriteLine(Input +" is in list\n");
                     }
                     else
                     {
                         Console.WriteLine("\nThat Item is not in this list");
                     }
-                    Console.WriteLine("\n");
+                    
                 }
                 if (Input == "5")
                 {
+                    Console.WriteLine("");
                     linkedList.Print();
                     
                 }
