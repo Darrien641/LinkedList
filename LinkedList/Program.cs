@@ -24,10 +24,11 @@ namespace LinkedList
                 Console.WriteLine("\nEnter An Option");
                 MenuList.Print();
                 Input = Console.ReadLine();
-
+                Console.WriteLine("\n");
                 if (int.Parse(Input) == 1)
                 {
                     Console.WriteLine(linkedList.getFirst());
+                    Console.WriteLine("\n");
                 }
                 if (Input == "2")
                 {
@@ -35,6 +36,7 @@ namespace LinkedList
                     Console.WriteLine("\nWhat would you like to add?");
                     Input = Console.ReadLine();
                     linkedList.Add(Input.ToLower());
+                    Console.WriteLine("\n");
                 }
                 if (Input == "3")
                 {
@@ -45,10 +47,11 @@ namespace LinkedList
                     {
                         linkedList.Remove(Input.ToLower());
                         Console.WriteLine(Input + " Was removed");
+
                     }
                     else
                     {
-                        Console.WriteLine(Input + " Items selected could not be removed. \nEither the Item does not exist or you should check your spelling.");
+                        Console.WriteLine(Input + " Items selected could not be removed. \nEither the Item does not exist or you should check your spelling.\n");
                     }
                     
                 }
@@ -65,19 +68,15 @@ namespace LinkedList
                     {
                         Console.WriteLine("\nThat Item is not in this list");
                     }
+                    Console.WriteLine("\n");
                 }
                 if (Input == "5")
                 {
                     linkedList.Print();
+                    
                 }
+                
             }
-
-            //linkedList.Print();
-
-            //linkedList.getFirst();
-
-            //Console.WriteLine(linkedList.Contains("Red"));
-            //Console.WriteLine(linkedList.Contains("Purple"));
         }
     }
 }
