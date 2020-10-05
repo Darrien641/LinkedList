@@ -66,21 +66,25 @@ namespace LinkedList
         public void Remove(string data)
         {
             Node current = front;
-            while (current.next != null)
+            Node previous = null;
+            if (current != null && current.data == data)
             {
-                string NodeData = current.next.data;
-                if (NodeData == data)
-                {
-                    current.next = current.next.next;
-                }
-                else if (data == front.data) 
-                {
-                    NodeData = front.data;
-                    front = front.next;
-                }
+                front = current.next;
+                return;
+            }
+            while (current != null && current.data != data)
+            {
+                previous = current;
                 current = current.next;
             }
-        }
+            if (current == null)
+            {
+                return;
+            }
+            previous.next = current.next;
+            
+        }      
+
         public Node Contains(string data)
         {
             Node current = front;

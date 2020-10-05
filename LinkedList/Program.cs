@@ -9,19 +9,19 @@ namespace LinkedList
             LinkedList MenuList = new LinkedList();
             LinkedList linkedList = new LinkedList();
             string Input = "";
-            MenuList.Add("1.Show Head");
+            MenuList.Add("\n1.Show Head");
             MenuList.Add("2.Add Item");
             MenuList.Add("3.Remove Item");
             MenuList.Add("4.Search for Item");
             MenuList.Add("5.Print");
-            MenuList.Add("6.Exit");
+            MenuList.Add("6.Exit\n");
 
-            linkedList.Add("Red");
-            linkedList.Add("Blue");
-            linkedList.Add("Green");
-            linkedList.Add("Yellow");
+            linkedList.Add("red");
+            linkedList.Add("blue");
+            linkedList.Add("green");
+            linkedList.Add("yellow");
             while (Input != "6") { 
-                Console.WriteLine("Enter An Option");
+                Console.WriteLine("\nEnter An Option");
                 MenuList.Print();
                 Input = Console.ReadLine();
 
@@ -32,30 +32,38 @@ namespace LinkedList
                 if (Input == "2")
                 {
                     Input = "";
-                    Console.WriteLine("What would you like to add?");
+                    Console.WriteLine("\nWhat would you like to add?");
                     Input = Console.ReadLine();
-                    linkedList.Add(Input);
+                    linkedList.Add(Input.ToLower());
                 }
                 if (Input == "3")
                 {
                     Input = "";
-                    Console.WriteLine("Which Item would You like to remove?");
+                    Console.WriteLine("\nWhich Item would You like to remove?");
                     Input = Console.ReadLine();
-                    linkedList.Remove(Input);
-                    Console.WriteLine(Input + " Was removed");
+                    if (linkedList.Contains(Input.ToLower()) != null)
+                    {
+                        linkedList.Remove(Input.ToLower());
+                        Console.WriteLine(Input + " Was removed");
+                    }
+                    else
+                    {
+                        Console.WriteLine(Input + " Items selected could not be removed. \nEither the Item does not exist or you should check your spelling.");
+                    }
+                    
                 }
                 if (Input == "4")
                 {
                     Input = "";
-                    Console.WriteLine("What Item would you like to search for?");
+                    Console.WriteLine("\nWhat Item would you like to search for?");
                     Input = Console.ReadLine();
-                    if (linkedList.Contains(Input) != null)
+                    if (linkedList.Contains(Input.ToLower()) != null)
                     {
-                        Console.WriteLine("Item is in list");
+                        Console.WriteLine(Input +" is in list");
                     }
                     else
                     {
-                        Console.WriteLine("That Item is not in this list");
+                        Console.WriteLine("\nThat Item is not in this list");
                     }
                 }
                 if (Input == "5")
